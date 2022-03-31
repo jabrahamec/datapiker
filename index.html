@@ -32,7 +32,7 @@
     
     input.md-mobile-picker-input {
         color: initial;
-        width: 100%;
+        width: 50%;
         padding: 10px;
         margin: 6px 0 12px 0;
         border: 1px solid #ccc;
@@ -67,43 +67,50 @@
 <body>
 
 <div mbsc-page class="demo-mobile-desktop-usage">
-  <div style="height:100%">
-      <div class="mbsc-grid">
-        <div class="mbsc-form-group">
-            <div class="mbsc-row">
-                <div class="mbsc-col-12">
-                    <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker with any inputs & show on focus/click</div>
-                    <input id="demo-mobile-picker-input" class="md-mobile-picker-input" placeholder="Please Select..." />
+    <div style="height:100%">
+       
+            <div class="mbsc-form-group">
+                <div class="mbsc-row">
+                    <div class="mbsc-col-12">
+                        <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker with any inputs & show on focus/click</div>
+                        <input id="demo-mobile-picker-input" class="md-mobile-picker-input" placeholder="Please Select..." />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mbsc-form-group">
-            <div class="mbsc-row">
-                <div class="mbsc-col-12 mbsc-txt-muted md-mobile-picker-header">Disable <code>onClick/onFocus</code> and only show on button</div>
-                <div class="mbsc-col-8">
-                    <input id="demo-mobile-picker-button" class="md-mobile-picker-input" />
-                </div>
-                <div class="mbsc-col-4">
-                    <button mbsc-button data-variant="outline" data-color="primary" id="show-mobile-date-picker" class="md-mobile-picker-button">Show picker</button>
+
+            <div class="mbsc-form-group">
+                <div class="mbsc-row">
+                    <div class="mbsc-col-12">
+                        <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker with any inputs & show on focus/click</div>
+                        <input id="demo-mobile-picker-input" class="md-mobile-picker-input" placeholder="Please Select..." />
+                    </div>
                 </div>
             </div>
+
+        
+        <!-- muestra de datapiker cualquier pantalla 
+        <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker inline in any page
         </div>
-        <div class=" mbsc-form-group">
-            <div class="mbsc-row">
-                <div class="mbsc-col-12">
-                    <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker with a Mobiscroll input</div>
-                    <label class="md-mobile-picker-box-label">
-                    <input id="demo-mobile-picker-mobiscroll" mbsc-input data-label-style="stacked" data-input-style="box" placeholder="Please Select..." />
-                </label>
-                </div>
+        <div class="md-mobile-picker-inline">
+            <div id="demo-mobile-picker-inline">
             </div>
         </div>
-        <div class="mbsc-txt-muted md-mobile-picker-header">Use the picker inline in any page</div>
+        <!- datapiker con boton de mostrar >
+            <div class="mbsc-form-group">
+                <div class="mbsc-row">
+                    <div class="mbsc-col-12 mbsc-txt-muted md-mobile-picker-header">Disable     <code>onClick/onFocus</code> and only show on button
+                    </div>
+                    <div class="mbsc-col-8">
+                        <input id="demo-mobile-picker-button" class="md-mobile-picker-input" />
+                    </div>
+                    <div class="mbsc-col-4">
+                        <button mbsc-button data-variant="outline" data-color="primary" id="show-mobile-date-picker" class="md-mobile-picker-button">Show picker</button>
+                    </div>
+                </div>
+            </div>
+
+        -->
     </div>
-    <div class="md-mobile-picker-inline">
-        <div id="demo-mobile-picker-inline"></div>
-    </div>
-  </div>
 </div>
 
 <script>
