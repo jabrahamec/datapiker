@@ -297,7 +297,7 @@ button {
 }
 
 .sign_btn a {
-     background-color: #2d2c2c;
+     background-color: #8fbf25;/*color de login*/
      display: inline-block;
      padding: 7px 35px;
      border-radius: 30px;
@@ -324,7 +324,7 @@ button {
 
 .header {
      width: 100%;
-     background: transparent;
+     background: transparent;/*color de header*/ 
      padding: 30px 30px;
      position: absolute;
      z-index: 999;
@@ -393,7 +393,7 @@ button {
 
 .text-img {
      height: 750px;
-     background: linear-gradient(to bottom, #0aec98 0%, #2bcc91 100%);
+     background: #1a1a1a;/*color y imagen de fondo*/
      border-radius: 322px 0px 0px 380px;
      padding: 132px 20px 0px 50px;
 }
@@ -456,7 +456,7 @@ font-size: 21px;
 
 .about {
      margin-top: 90px;
-     background: #23262d;
+     background: #1a1a1a;/*color de about*/
      padding: 60px 0;
 }
 
