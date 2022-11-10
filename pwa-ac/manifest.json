@@ -1,9 +1,9 @@
 {
-  "name": "#ProgramadorFitness",
-  "short_name": "#ProgramadorFitness",
-  "description": "Bienvenid@s a #ProgramadorFitness, serie de videos, donde te daré consejos para llevar una vida saludable y evitar el sedentarismo. Recuerda... mente sana en cuerpo sano :)",
+  "name": "#GaritaProyect",
+  "short_name": "#PWA-ESCRITORIO",
+  "description": "Bienvenid@s a PWA de escritorio para acceder desde garita",
   "background_color": "#2B2B2B",
-  "theme_color": "#F0DB4F",
+  "theme_color": "#FFFFF",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "./?utm_source=web_app_manifest",
