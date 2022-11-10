@@ -11,7 +11,7 @@ const CACHE_NAME = 'v1_cache_programador_fitness',
     'css/estilos.css',
     'js/categorias.js',
     './script.js',
-    './img/ProgramadorFitness.png',
+    './img/garita.png',
     './img/favicon.png'
   ]
 
