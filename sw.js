@@ -1,52 +1,63 @@
-var GHPATH = '/github-page-pwa';
-var APP_PREFIX = 'gppwa_';
-var VERSION = 'version_002';
-var URLS = [    
-  `${GHPATH}/`,
-  `${GHPATH}/index.html`,
-  `${GHPATH}/css/styles.css`,
-  `${GHPATH}/img/icon.png`,
-  `${GHPATH}/js/app.js`
-]
+;
+//asignar un nombre y versión al cache
+const CACHE_NAME = 'v1_cache_programador_fitness',
+  urlsToCache = [
+    './',
+    'https://fonts.googleapis.com/css?family=Raleway:400,700',
+    'https://fonts.gstatic.com/s/raleway/v12/1Ptrg8zYS_SKggPNwJYtWqZPAA.woff2',
+    'https://use.fontawesome.com/releases/v5.0.7/css/all.css',
+    'https://use.fontawesome.com/releases/v5.0.6/webfonts/fa-brands-400.woff2',
+    './style.css',
+    './script.js',
+    './img/ProgramadorFitness.png',
+    './img/favicon.png'
+  ]
 
-var CACHE_NAME = APP_PREFIX + VERSION
-self.addEventListener('fetch', function (e) {
-  console.log('Fetch request : ' + e.request.url);
-  e.respondWith(
-    caches.match(e.request).then(function (request) {
-      if (request) { 
-        console.log('Responding with cache : ' + e.request.url);
-        return request
-      } else {       
-        console.log('File is not cached, fetching : ' + e.request.url);
-        return fetch(e.request)
-      }
-    })
-  )
-})
-
-self.addEventListener('install', function (e) {
+//durante la fase de instalación, generalmente se almacena en caché los activos estáticos
+self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('Installing cache : ' + CACHE_NAME);
-      return cache.addAll(URLS)
-    })
-  )
-})
-
-self.addEventListener('activate', function (e) {
-  e.waitUntil(
-    caches.keys().then(function (keyList) {
-      var cacheWhitelist = keyList.filter(function (key) {
-        return key.indexOf(APP_PREFIX)
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache)
+          .then(() => self.skipWaiting())
       })
-      cacheWhitelist.push(CACHE_NAME);
-      return Promise.all(keyList.map(function (key, i) {
-        if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('Deleting cache : ' + keyList[i] );
-          return caches.delete(keyList[i])
+      .catch(err => console.log('Falló registro de cache', err))
+  )
+})
+
+//una vez que se instala el SW, se activa y busca los recursos para hacer que funcione sin conexión
+self.addEventListener('activate', e => {
+  const cacheWhitelist = [CACHE_NAME]
+
+  e.waitUntil(
+    caches.keys()
+      .then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            //Eliminamos lo que ya no se necesita en cache
+            if (cacheWhitelist.indexOf(cacheName) === -1) {
+              return caches.delete(cacheName)
+            }
+          })
+        )
+      })
+      // Le indica al SW activar el cache actual
+      .then(() => self.clients.claim())
+  )
+})
+
+//cuando el navegador recupera una url
+self.addEventListener('fetch', e => {
+  //Responder ya sea con el objeto en caché o continuar y buscar la url real
+  e.respondWith(
+    caches.match(e.request)
+      .then(res => {
+        if (res) {
+          //recuperar del cache
+          return res
         }
-      }))
-    })
+        //recuperar de la petición a la url
+        return fetch(e.request)
+      })
   )
 })
