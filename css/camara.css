@@ -1,0 +1,23 @@
+#video_wrap {
+  display: flex;
+}
+#video_overlays {
+  position: absolute;
+}
+#video_overlays img {
+  width: 850px;
+  height: 450px;
+}
+#video_frame {
+  width:100%;
+}
+#canvas_frame {
+  width: 320px;
+  height: 200px;
+  float: right;
+}
+.button_controller {
+  float: right;
+  border: 1px solid gray;
+  padding: 10px;
+}
